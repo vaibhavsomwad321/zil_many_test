@@ -1,0 +1,26 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-bordered">
+                <thead>
+                    <th><strong>Name</strong> <span class="text-danger">*</span> <input type="search" class="form-control" placeholder="Search Name" [(ngModel)]="name"></th>
+                    <th><strong>Company Name</strong><span class="text-danger">*</span> <input type="search" class="form-control" placeholder="Search Company Name"  [(ngModel)]="companyName"></th>
+                    <th><strong>Designation</strong> <span class="text-danger">*</span><input type="search" class="form-control" placeholder="Search Designation"  [(ngModel)]="designation" ></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userArray | user : name : companyName : designation " [ngClass]="{'bg-success':user.company.designation === 'angular Developer'}">
+                        <td>
+                            {{user.name}}
+                        </td>
+                        <td>
+                            {{user.company.name}}
+                        </td>
+                        <td>
+                            {{user.company.designation}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
